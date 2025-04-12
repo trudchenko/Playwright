@@ -4,13 +4,13 @@
   "main": "index.js",
 
   "scripts": {
-    "test": "npx playwright test ",
+    "test": "npx playwright test",
     "test:headed": "playwright test --headed",
     "test:headed:safari": "playwright test --headed --project=webkit",
     "test:headed:chromium": "playwright test --headed --project=chromium",
     "test:headed:chrome": "playwright test --headed --project='Google Chrome'", 
     "test:headed:chrome:w1": "playwright test --headed --project='Google Chrome' --workers=1",
-     "test:ui": "npx playwright test --ui"
+     "test:ui": "npx playwright test --ui --workers=6 --headed"
   },
   "keywords": [],
   "author": "",
