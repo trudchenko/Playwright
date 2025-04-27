@@ -9,13 +9,13 @@ let garage;
 let expenses;
 
 test.describe('Garage test', () => {
-    test.beforeEach(async({ page }) => {
+    test.beforeEach(async({ page, baseURL, httpCredentials }) => {
         loginpage = new LoginPage(page);
         garage = new Garage(page);
         expenses = new Expenses(page);
         
-        await page.goto('https://guest:welcome2qauto@qauto.forstudy.space/');
-        await loginpage.executeLogin('rudchenkosumy@gmail.com', 'Password1!');
+        await page.goto(baseURL);
+        await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
     });
 
     test.afterEach ('Remove Card', async () => {
@@ -34,6 +34,14 @@ test.describe('Garage test', () => {
         await expect(expenses.selectors.fuelExpensesTab).toContainClass('-active');
         await expect(expenses.selectors.expenseCells.nth(1)).toContainText('128');
         await expect(expenses.selectors.expenseCells.nth(2)).toContainText('20L');
-        await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40.00 USD');
+
+        if (process.env.BASE_ENV === "prod") {
+            await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40 USD');
+            
+        } else {
+            await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40.00 USD');
+        }
+
+               
     });
 })

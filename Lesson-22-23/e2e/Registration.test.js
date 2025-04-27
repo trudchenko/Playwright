@@ -5,9 +5,9 @@ import { Registration } from '../Support/poms';
 let registration;
 
 test.describe('Registration page tests', () => {
-    test.beforeEach(async({ page }) => {
+    test.beforeEach(async({ page, baseURL }) => {
         registration = new Registration(page);
-        await page.goto('https://qauto.forstudy.space/');
+        await page.goto(baseURL);
         await registration.selectors.buttonSignUp.click();
     });
 

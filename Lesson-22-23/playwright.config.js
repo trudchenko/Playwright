@@ -1,6 +1,9 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
+import dotenv from  'dotenv';
+import * as path from 'path';
+dotenv.config({path: '.env.test'});
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -39,6 +42,13 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    baseURL: process.env.BASE_URL,
+    // baseURL: process.env.BASE_URL || 'https://guest:welcome2qauto@qauto.forstudy.space/',
+
+    httpCredentials: {
+      username: process.env.HTTP_CREDENTIALS_USERNAME || '',
+      password: process.env.HTTP_CREDENTIALS_PASSWORD || '',
+    },
     testIdAttribute: 'routerlink',  
     headless: true,
       viewport: { width: 1280, height: 720 },
@@ -46,10 +56,10 @@ export default defineConfig({
       video: 'on-first-retry',
       trace: 'on-first-retry',
 
-      httpCredentials: {
-        username: 'guest',
-        password: 'welcome2qauto',
-      },
+      // httpCredentials: {
+      //   username: 'guest',
+      //   password: 'welcome2qauto',
+      // },
     },
 
   
