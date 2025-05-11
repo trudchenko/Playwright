@@ -26,13 +26,33 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: 'html',
+  reporter: process.env.TESTOMATIO ? [
+    ['list'],
+    [
+      '@testomatio/reporter/lib/adapter/playwright.js',
+      {
+        apiKey: process.env.TESTOMATIO,
+      },
+    ],
+  ] : 'html' ,
+
+
   projects: [
     {
       name: 'Google Chrome',
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
       fullyParallel: true,
     },
+
+
+    { name: 'setup', testMatch: /login.setup\.js/, testDir: './setup' },
+    {
+      name: 'GoogleChromeSetup',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome', storageState: 'session-storage.json' },
+      dependencies: ['setup']
+    },
+
   ],
  
     use: {

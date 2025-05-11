@@ -23,4 +23,7 @@ export default class Expenses extends BasePage {
         await this.selectors.inputTotalCost.fill(totalCost);
         await this.selectors.buttonAdd.click();
     };
+    async openPage(){
+        await this.page.goto('/panel/expenses');
+      }
 }

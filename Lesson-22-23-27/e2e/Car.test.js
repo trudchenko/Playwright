@@ -22,8 +22,10 @@ test.describe('Garage test', () => {
         await garage.removeCar();
     });
 
-    test('Add Card', async () => {
+    test('Add Card', async ({page}) => {
         await garage.addCar('Audi', 'TT', '12');
+        await page.pause();
+        
         await expect(garage.selectors.carAddedLabel).toBeVisible();
         await expect(garage.selectors.carExist).toBeVisible();
     });
@@ -41,7 +43,6 @@ test.describe('Garage test', () => {
         } else {
             await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40.00 USD');
         }
-
-               
+       
     });
 })

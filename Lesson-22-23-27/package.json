@@ -13,8 +13,9 @@
     "test:ui": "npx playwright test --ui",
     "test:ui.stage": "copy configs\\.env.stage .env.test && npx playwright test --ui",
     "test:ui.prod": "copy configs\\.env.prod .env.test && npx playwright test --ui",
-
-    "test:codegen": "npx playwright codegen https://guest:welcome2qauto@qauto.forstudy.space/"
+    "test:codegen": "npx playwright codegen https://guest:welcome2qauto@qauto.forstudy.space/",
+    "test:ui:settings-fixture": "npx playwright test e2e/Car-fixture.spec.js --ui",
+    "test:ui:settings-fixture-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/Car-fixture.spec.js --ui --project=GoogleChromeSetup"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
+    "@testomatio/reporter": "^1.6.16",
     "@types/node": "^22.14.0"
   },
   "dependencies": {

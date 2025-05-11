@@ -30,5 +30,9 @@ export default class Garage extends BasePage {
         await this.selectors.buttonEdit.first().click();
         await this.selectors.buttonRemoveCar.click();
         await this.selectors.buttonRemove.click();
-    };     
+    };   
+    
+    async openPage(){
+        await this.page.goto('/panel/garage');
+      }
 }
