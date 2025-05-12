@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../Support/poms';
-import { Garage } from '../Support/poms';
-import { Expenses } from '../Support/poms';
+import { LoginPage } from '../../Support/poms';
+import { Garage } from '../../Support/poms';
+import { Expenses } from '../../Support/poms';
 
 /** @type {LoginPage} */
 let loginpage;
@@ -9,13 +9,13 @@ let garage;
 let expenses;
 
 test.describe('Garage test', () => {
-    test.beforeEach(async({ page, baseURL, httpCredentials }) => {
+    test.beforeEach(async({ page, baseURL}) => {
         loginpage = new LoginPage(page);
         garage = new Garage(page);
         expenses = new Expenses(page);
         
         await page.goto(baseURL);
-        await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
+        await loginpage.executeLogin(process.env.APP_USERNAME, process.env.APP_PASSWORD);
     });
 
     test.afterEach ('Remove Card', async () => {

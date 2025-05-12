@@ -65,10 +65,10 @@ export default defineConfig({
     baseURL: process.env.BASE_URL,
     // baseURL: process.env.BASE_URL || 'https://guest:welcome2qauto@qauto.forstudy.space/',
 
-    httpCredentials: {
-      username: process.env.HTTP_CREDENTIALS_USERNAME || '',
-      password: process.env.HTTP_CREDENTIALS_PASSWORD || '',
-    },
+    // httpCredentials: {
+    //   username: process.env.APP_USERNAME || '',
+    //   password: process.env.APP_PASSWORD || '',
+    // },
     testIdAttribute: 'routerlink',  
     headless: true,
       viewport: { width: 1280, height: 720 },
@@ -76,10 +76,10 @@ export default defineConfig({
       video: 'on-first-retry',
       trace: 'on-first-retry',
 
-      // httpCredentials: {
-      //   username: 'guest',
-      //   password: 'welcome2qauto',
-      // },
+      httpCredentials: {
+        username: process.env.HTTP_USERNAME || '',
+        password: process.env.HTTP_PASSWORD || ''
+      },
     },
 
   

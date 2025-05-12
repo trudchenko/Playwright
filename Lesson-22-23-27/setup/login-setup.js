@@ -7,13 +7,12 @@ let loginpage;
 const authFile = 'session-storage.json';
 
 setup('SETUP_BASED: Login',
-     async({ page, baseURL, httpCredentials}) => {
+     async({page, baseURL}) => {
         loginpage = new LoginPage(page);
         
-        // await page.goto('https://guest:welcome2qauto@qauto.forstudy.space/');
         await page.goto(baseURL);
 
-        await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
+        await loginpage.executeLogin(process.env.APP_USERNAME, process.env.APP_PASSWORD);
         await loginpage.page.waitForTimeout(1000);
 
         await page.context().storageState({ path: authFile });

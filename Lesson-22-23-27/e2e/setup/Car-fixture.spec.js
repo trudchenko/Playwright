@@ -1,6 +1,6 @@
 
-import { test, expect } from '../fixture/userGaragePage.fixture';
-import { Expenses } from '../Support/poms';
+import { test, expect } from '../../fixture/userGaragePage.fixture';
+import { Expenses } from '../../Support/poms';
 
 let expenses;
 
@@ -18,11 +18,6 @@ test.describe('FIXTURE_BASED: Garage test', () => {
         await expect(expenses.selectors.expenseCells.nth(1)).toContainText('128');
         await expect(expenses.selectors.expenseCells.nth(2)).toContainText('20L');
 
-        if (process.env.BASE_ENV === "prod") {
-            await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40 USD');
-            
-        } else {
-            await expect(expenses.selectors.expenseCells.nth(3)).toContainText('40.00 USD');
-        }
+        await expect(expenses.selectors.expenseCells.nth(3)).toContainText(process.env.BASE_ENV === "prod" ? '40 USD' : '40.00 USD');
     });    
 })

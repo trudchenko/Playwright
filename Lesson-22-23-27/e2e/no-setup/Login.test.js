@@ -1,6 +1,6 @@
 
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../Support/poms';
+import { LoginPage } from '../../Support/poms';
 
 /** @type {LoginPage} */
 let loginpage;
@@ -14,8 +14,8 @@ test.describe('Login test', () => {
 
             });
 
-     test('Login', async ({httpCredentials}) => {
-           await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
+     test('Login', async () => {
+           await loginpage.executeLogin(process.env.APP_USERNAME, process.env.APP_PASSWORD);
            await expect(loginpage.selectors.buttonAddCar).toBeVisible();
     });
 })

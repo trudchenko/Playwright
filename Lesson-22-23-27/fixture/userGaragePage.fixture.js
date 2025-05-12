@@ -6,21 +6,21 @@ export const test = base.extend({
     garage: async({ page }, use) => {
      
         //befor test 
-            // const loginpage = new LoginPage(page);
-            const garage = new Garage(page);
+        // const loginpage = new LoginPage(page);
+        const garage = new Garage(page);
 
-            // await page.goto(baseURL);
-            // await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
+        // await page.goto(baseURL);
+        // await loginpage.executeLogin(httpCredentials.username, httpCredentials.password);
 
-            await garage.openPage();
-            await garage.addCar('Audi', 'TT', '12');
-           
+        await garage.openPage();
+        await garage.addCar('Audi', 'TT', '12');
+        
 
-             //for test
-            await use(garage);
+            //for test
+        await use(garage);
 
-            //after test
-            await garage.removeCar();
+        //after test
+        await garage.removeCar();
     }
 });
 export { expect } from '@playwright/test';
