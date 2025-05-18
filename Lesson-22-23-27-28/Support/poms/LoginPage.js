@@ -8,7 +8,9 @@ export default class LoginPage extends BasePage {
         buttonLogin: this.page.getByRole('button', { name: 'Login' }),
         emailField: this.page.getByRole('textbox', { name: 'Email' }),
         passwordField: this.page.getByRole('textbox', { name: 'Password' }),
-        buttonAddCar: this.page.getByRole('button', { name: 'Add car' })
+        buttonAddCar: this.page.getByRole('button', { name: 'Add car' }),
+        buttonEditProfile: this.page.getByRole('button', { name: 'Edit profile' }),
+        buttonMyProfile: this.page.getByRole('#userNavDropdown'),
     };
    
 
@@ -18,4 +20,7 @@ export default class LoginPage extends BasePage {
         await this.selectors.passwordField.fill(pasword);
         await this.selectors.buttonLogin.click();
     };
+    async openPage(){
+        await this.page.goto('/panel/profile');
+      }
 };

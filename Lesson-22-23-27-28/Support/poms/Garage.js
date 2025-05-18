@@ -27,6 +27,11 @@ export default class Garage extends BasePage {
 
     async removeCar() {
         await this.selectors.garageTab.click();
+        const count = await this.selectors.buttonEdit.count();
+        if (count < 1) {
+            return;
+        }
+
         await this.selectors.buttonEdit.first().click();
         await this.selectors.buttonRemoveCar.click();
         await this.selectors.buttonRemove.click();

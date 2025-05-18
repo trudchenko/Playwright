@@ -18,7 +18,11 @@
     "test:ui:settings-fixture-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/Car-fixture.spec.js --ui --project=GoogleChromeSetup",
 
     "test:ui:setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/setup/* --ui --project=GoogleChromeSetup",
-    "test:ui:no-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/* --ui --project=\"Google Chrome\""
+    "test:ui:no-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/* --ui --project=\"Google Chrome\"",
+    "test:ui:no-setup.file": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/api.test.js --ui --project=\"Google Chrome\"",
+    "test:no-setup.file": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/api.test.js --headed --project=\"Google Chrome\" --workers=1"
+
+
   },
   "keywords": [],
   "author": "",

@@ -16,6 +16,7 @@ test.describe('Garage test', () => {
         
         await page.goto(baseURL);
         await loginpage.executeLogin(process.env.APP_USERNAME, process.env.APP_PASSWORD);
+        
     });
 
     test.afterEach ('Remove Card', async () => {
@@ -24,8 +25,7 @@ test.describe('Garage test', () => {
 
     test('Add Card', async ({page}) => {
         await garage.addCar('Audi', 'TT', '12');
-        await page.pause();
-        
+                
         await expect(garage.selectors.carAddedLabel).toBeVisible();
         await expect(garage.selectors.carExist).toBeVisible();
     });
