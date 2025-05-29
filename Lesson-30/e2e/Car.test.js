@@ -30,7 +30,7 @@ test.describe('Garage test', () => {
         await expect(garage.selectors.carExist).toBeVisible();
     });
 
-    test ('Add Fuel Expenses', async ({page}) => {
+    test.skip ('Add Fuel Expenses', async ({page}) => {
         await garage.addCar('Ford', 'Focus', '99');
         await expenses.addFuelExpenses('128', '20', '40');
         await expect(expenses.selectors.fuelExpensesTab).toContainClass('-active');

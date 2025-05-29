@@ -23,6 +23,21 @@ jobs:
           TESTOMATIO: ${{ vars.TESTOMATIO }}
           TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
         run: npm run test:chromium
+        
+    tests-pw-api: 
+      name: 'Run Playwright API tests'
+      if: ${{ always() }}
+      needs: tests-pw-default-image
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+        - name: Install dependecies
+          working-directory: ./Lesson-30
+          run: npm i
+        - name: Run api test
+          working-directory: ./Lesson-30
+          run: npm run test:api
               
 
      
