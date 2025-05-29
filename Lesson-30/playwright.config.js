@@ -38,22 +38,22 @@ export default defineConfig({
   ] : 'html' ,
 
 
-  projects: [
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-      fullyParallel: true,
-    },
+  // projects: [
+  //   {
+  //     name: 'Google Chrome',
+  //     use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+  //     fullyParallel: true,
+  //   },
 
 
-    { name: 'setup', testMatch: /login.setup\.js/, testDir: './setup' },
-    {
-      name: 'GoogleChromeSetup',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome', storageState: 'session-storage.json' },
-      dependencies: ['setup']
-    },
+  //   { name: 'setup', testMatch: /login.setup\.js/, testDir: './setup' },
+  //   {
+  //     name: 'GoogleChromeSetup',
+  //     use: { ...devices['Desktop Chrome'], channel: 'chrome', storageState: 'session-storage.json' },
+  //     dependencies: ['setup']
+  //   },
 
-  ],
+  // ],
  
     use: {
 
@@ -62,7 +62,7 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space/',
     // baseURL: process.env.BASE_URL || 'https://guest:welcome2qauto@qauto.forstudy.space/',
 
     // httpCredentials: {
@@ -77,8 +77,8 @@ export default defineConfig({
       trace: 'on-first-retry',
 
       httpCredentials: {
-        username: process.env.HTTP_USERNAME || '',
-        password: process.env.HTTP_PASSWORD || ''
+        username: process.env.HTTP_USERNAME || 'guest',
+        password: process.env.HTTP_PASSWORD || 'welcome2qauto'
       },
     },
 
@@ -86,21 +86,21 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
 
-  // projects: [
-  //   {
-  //     name: 'chromium',
-  //     use: { ...devices['Desktop Chrome'] },
-  //   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
-  //   {
-  //     name: 'firefox',
-  //     use: { ...devices['Desktop Firefox'] },
-  //   },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-  //   {
-  //     name: 'webkit',
-  //     use: { ...devices['Desktop Safari'] },
-  //   },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
@@ -110,20 +110,20 @@ export default defineConfig({
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
-    // },
+    // // },
 
     /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-  //   // },
+    {
+      name: 'Google Chrome',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    },
 
 
-  // ],
+  ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {

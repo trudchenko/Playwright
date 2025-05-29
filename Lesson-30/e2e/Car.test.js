@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../Support/poms';
-import { Garage } from '../../Support/poms';
-import { Expenses } from '../../Support/poms';
+import { LoginPage } from '../Support/poms';
+import { Garage } from '../Support/poms';
+import { Expenses } from '../Support/poms';
 
 /** @type {LoginPage} */
 let loginpage;

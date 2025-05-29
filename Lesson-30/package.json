@@ -16,12 +16,22 @@
     "test:codegen": "npx playwright codegen https://guest:welcome2qauto@qauto.forstudy.space/",
     "test:ui:settings-fixture": "npx playwright test e2e/Car-fixture.spec.js --ui",
     "test:ui:settings-fixture-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/Car-fixture.spec.js --ui --project=GoogleChromeSetup",
-
     "test:ui:setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/setup/* --ui --project=GoogleChromeSetup",
     "test:ui:no-setup": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/* --ui --project=\"Google Chrome\"",
     "test:ui:no-setup.file": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/api.test.js --ui --project=\"Google Chrome\"",
-    "test:no-setup.file": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/api.test.js --headed --project=\"Google Chrome\" --workers=1"
+    "test:no-setup.file": "copy configs\\.env.stage .env.test && npx playwright test e2e/no-setup/api.test.js --headed --project=\"Google Chrome\" --workers=1",
+     "test:file": "copy configs\\.env.stage .env.test && npx playwright test e2e/Car.test.js --ui --project=\"Google Chrome\" --workers=1",
 
+    "test:headless": "copy configs\\.env.stage .env.test && npx playwright test --headless",
+    "test:Chrome": "copy configs\\.env.stage .env.test && npx playwright test --project=\"Google Chrome\" --workers=1",
+    "test:chromium": "copy configs\\.env.stage .env.test && npx playwright test --project=chromium --workers=1",
+    "test:chromium1": "npx playwright test --project=chromium --workers=1",
+
+    "test:firefox": "npx playwright test --project=firefox --workers=1",
+    
+     "lint": "eslint",
+    "lint:fix": "eslint --fix"
+   
 
   },
   "keywords": [],

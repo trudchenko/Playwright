@@ -1,7 +1,7 @@
 
 import { test, expect, request as globalRequest } from '@playwright/test';
-import { LoginPage } from '../../Support/poms';
-import { Garage } from '../../Support/poms';
+import { LoginPage } from '../Support/poms';
+import { Garage } from '../Support/poms';
 
 /** @type {LoginPage} */
 let loginpage;
@@ -135,7 +135,6 @@ test.describe('Login test', () => {
             }
         });
 
-        console.log(await addCar.json());
         const addCarResponce = await addCar.json();
         expect(addCarResponce.message).toEqual('Mileage is required');
         await page.reload();
@@ -152,7 +151,6 @@ test.describe('Login test', () => {
             }
         });
 
-        console.log(await addCar.json());
         const addCarResponce = await addCar.json();
         expect(addCarResponce.message).toEqual('Brand not found');
         await page.reload();

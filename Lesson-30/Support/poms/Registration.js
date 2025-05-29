@@ -81,7 +81,7 @@ export default class Registration extends BasePage {
     }
 
     async  testLastName(lastName) {
-        console.log(process.env.BASE_ENV);
+        
         await this.fillLastName(lastName);
         if (!!lastName) {
             await expect(this.selectors.lastNameErrorMessage2).toBeVisible();

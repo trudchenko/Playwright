@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { Registration } from '../../Support/poms';
+import { Registration } from '../Support/poms';
 
 /** @type {Registration} */
 let registration;

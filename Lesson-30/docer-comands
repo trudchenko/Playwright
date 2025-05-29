@@ -1,0 +1,5 @@
+docker run -it --ipc=host pw-local:1.0 /bin/bash
+
+docker run -v ${PWD}:/e2e --workdir /e2e --ipc=host  -it --rm  mcr.microsoft.com/playwright:v1.52.0
+
+docker run -v ${PWD}:/e2e --workdir /e2e --ipc=host  -it --rm  mcr.microsoft.com/playwright:v1.52.0 npm run test:firefox
