@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        working-directory: ./lesson-30
+        working-directory: ./Lesson-30
         run: npm ci
       - name: Run e2e tests
-        working-directory: ./lesson-30
+        working-directory: ./Lesson-30
         env:
           TESTOMATIO: ${{ vars.TESTOMATIO }}
           TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
