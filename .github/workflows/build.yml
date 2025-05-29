@@ -23,8 +23,7 @@ jobs:
           TESTOMATIO: ${{ vars.TESTOMATIO }}
           TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
         run: npm run test:chromium
-        
-    tests-pw-api: 
+  tests-api: 
       name: 'Run Playwright API tests'
       if: ${{ always() }}
       needs: tests-pw-default-image
