@@ -17,15 +17,12 @@ jobs:
       - name: Install dependencies
         working-directory: ./Lesson-30
         run: npm ci
-      - name: Install Playwright Browsers
-        working-directory: ./Lesson-30
-        run: npx playwright install --with-deps 
       - name: Run e2e tests
         working-directory: ./Lesson-30
         env:
           TESTOMATIO: ${{ vars.TESTOMATIO }}
           TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
-        run: npm run test:firefox
+        run: npm run test:chromium
               
 
      

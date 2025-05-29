@@ -24,8 +24,8 @@
 
     "test:headless": "copy configs\\.env.stage .env.test && npx playwright test --headless",
     "test:Chrome": "copy configs\\.env.stage .env.test && npx playwright test --project=\"Google Chrome\" --workers=1",
-    "test:chromium": "copy configs\\.env.stage .env.test && npx playwright test --project=chromium --workers=1",
-    "test:chromium1": "npx playwright test --project=chromium --workers=1",
+    "test:chromium1": "copy configs\\.env.stage .env.test && npx playwright test --project=chromium --workers=1",
+    "test:chromium": "npx playwright test --project=chromium --workers=1",
 
     "test:firefox": "npx playwright test --project=firefox --workers=1",
     
