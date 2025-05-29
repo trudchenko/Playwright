@@ -28,7 +28,7 @@
     "test:chromium": "npx playwright test --project=chromium --workers=1",
 
     "test:firefox": "npx playwright test --project=firefox --workers=1",
-    "test:api": "npx playwright test e2e/api.test.js --headed --project=\"Google Chrome\" --workers=1",
+    "test:api": "npx playwright test e2e/api.test.js --project=\"Google Chrome\" --workers=1",
     
      "lint": "eslint",
     "lint:fix": "eslint --fix"
