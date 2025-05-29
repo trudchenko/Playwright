@@ -15,9 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        with:
-          # browser: firefox
-          working-directory: ./lesson-30
+        working-directory: ./lesson-30
         run: npm ci
       - name: Run e2e tests
         working-directory: ./lesson-30
